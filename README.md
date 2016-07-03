@@ -45,10 +45,10 @@ jQuery
 
 ```js
 // layout a filtered list of items with 'data-filter' attribute is set to 'books'
-$grid.masonry('layout', {filter:'books'})
+$('.grid').masonry('layout', {filter:'books'})
 
 // combine filter and shuffle
-$grid.masonry('layout', {filter:'books', shuffle:true})
+$('.grid').masonry('layout', {filter:'books', shuffle:true})
 ```
 
 ## Demo
