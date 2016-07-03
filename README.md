@@ -6,7 +6,9 @@
  ```
 > Extends the [masonry](http://masonry.desandro.com) plugin by David DeSandro to filter and shuffle items.
 
-Check out a demo project, [PyroCMS Cheatsheet](http://websemantics.github.io/pyrocms-cheatsheet)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/websemantics/masonry-plus/master/LICENSE) [![GitHub forks](https://img.shields.io/github/forks/websemantics/masonry-plus.svg)](https://github.com/websemantics/masonry-plus/network) [![GitHub stars](https://img.shields.io/github/stars/websemantics/masonry-plus.svg)](https://github.com/websemantics/masonry-plus/stargazers)
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/websemantics/masonry-plus.svg)](http://isitmaintained.com/project/websemantics/masonry-plus "Percentage of issues still open") [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 
 ## Install
 
@@ -45,3 +47,7 @@ $grid.masonry('layout', {filter:'books'})
 // shuffle the list of items
 $grid.masonry('layout', {shuffle:true})
 ```
+
+## Demo
+
+Check out a demo project, [PyroCMS Cheatsheet](http://websemantics.github.io/pyrocms-cheatsheet)
