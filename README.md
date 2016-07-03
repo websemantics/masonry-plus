@@ -36,6 +36,9 @@ masonry.layout({filter:'books'});
 
 // shuffle the list of items
 masonry.layout({shuffle:true});
+
+// show all items
+masonry.layout({filter:'*'});
 ```
 
 jQuery
@@ -44,8 +47,8 @@ jQuery
 // layout a filtered list of items with 'data-filter' attribute is set to 'books'
 $grid.masonry('layout', {filter:'books'})
 
-// shuffle the list of items
-$grid.masonry('layout', {shuffle:true})
+// combine filter and shuffle
+$grid.masonry('layout', {filter:'books', shuffle:true})
 ```
 
 ## Demo
