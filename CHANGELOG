@@ -1,0 +1,4 @@
+0.1.0
+  date: 2016-06-03
+  changes:
+  - Extends layout method to support filter and shuffle operations

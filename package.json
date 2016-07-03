@@ -1,0 +1,28 @@
+{
+  "name": "masonry-plus",
+  "version": "0.1.0",
+  "description": "Extends the masonry plugin by David DeSandro to filter and shuffle items.",
+  "main": "masonry-plus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/websemantics/masonry-plus.git"
+  },
+  "keywords": [
+    "masonry"
+  ],
+  "author": {
+    "name": "Adnan M.Sagar, PhD.",
+    "email": "adnan@websemantics.ca"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/websemantics/masonry-plus/issues"
+  },
+  "dependencies": {
+    "masonry-layout": "*"
+  },
+  "homepage": "https://github.com/websemantics/masonry-plus#readme"
+}
