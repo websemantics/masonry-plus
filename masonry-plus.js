@@ -13,7 +13,7 @@
 
 ;(function(root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(['Masonry'],
+        define(['masonry-layout'],
             function(Masonry) {
                 return (root.Masonry = factory(Masonry))
             })
