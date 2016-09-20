@@ -36,29 +36,56 @@
     Masonry.prototype.layout = function(args) {
         args = args || {}
 
-        // check for filter settins
+        /* apply filters */
         if (args.filter && this.items.length > 0) {
-            for (var i in this.items) {
-                var shown = args.filter == '*' || args.filter == this.items[i].element.getAttribute('data-filter')
-
-                if (shown && this.items[i].isHidden) {
-                    this.items[i].reveal()
-                    delete this.items[i].isIgnored
-                }
-
-                if (!shown && !this.items[i].isHidden) {
-                    this.items[i].hide()
-                    this.items[i].isIgnored = true
-                }
+          for (var i in this.items) {
+            if(args.filter == '*' || args.filter == this.items[i].element.getAttribute('data-filter')){
+              if (this.items[i].isHidden) {
+                  delete this.items[i].isIgnored
+                  this.items[i].reveal()
+              }
+            } else {
+              if (!this.items[i].isHidden) {
+                  this.items[i].isIgnored = true
+                  this.items[i].hide()
+              }
             }
+          }
         }
 
-        // check for shuffling business (credits, https://css-tricks.com/snippets/javascript/shuffle-array/)
+        /* apply shuffling, credits: https://css-tricks.com/snippets/javascript/shuffle-array */
         if (args.shuffle) {
-            for (var j, x, i = this.items.length; i; j = parseInt(Math.random() * i), x = this.items[--i], this.items[i] = this.items[j], this.items[j] = x) {}
+            for (var j, x, i = this.items.length; i; j = parseInt(Math.random() * i), x = this.items[--i],
+            this.items[i] = this.items[j], this.items[j] = x) {}
         }
 
         this._layout()
+    }
+
+    Masonry.prototype.measureColumns = function() {
+      this.getContainerWidth()
+      // if columnWidth is 0, default to outerWidth of first item
+      if ( !this.columnWidth ) {
+        /* var firstItem = this.items[0] old code */
+        var firstItem = this.items.find(function(item) {return !item.isIgnored})
+        var firstItemElem = firstItem && firstItem.element
+        // columnWidth fall back to item of first element
+        this.columnWidth = firstItemElem && getSize( firstItemElem ).outerWidth ||
+          // if first elem has no width, default to size of container
+          this.containerWidth
+      }
+
+      var columnWidth = this.columnWidth += this.gutter
+
+      // calculate columns
+      var containerWidth = this.containerWidth + this.gutter
+      var cols = containerWidth / columnWidth
+      // fix rounding errors, typically with gutters
+      var excess = columnWidth - containerWidth % columnWidth
+      // if overshoot is less than a pixel, round up, otherwise floor it
+      var mathMethod = excess && excess < 1 ? 'round' : 'floor'
+      cols = Math[ mathMethod ]( cols )
+      this.cols = Math.max( cols, 1 )
     }
 
     return Masonry
