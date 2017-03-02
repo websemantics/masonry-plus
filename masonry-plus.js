@@ -39,7 +39,8 @@
         /* apply filters */
         if (args.filter && this.items.length > 0) {
           for (var i in this.items) {
-            if(args.filter == '*' || args.filter == this.items[i].element.getAttribute('data-filter')){
+            var index = this.items[i].element.getAttribute('data-filter').split(' ').indexOf(args.filter);
+            if(args.filter == '*' || index > -1){
               if (this.items[i].isHidden) {
                   delete this.items[i].isIgnored
                   this.items[i].reveal()
