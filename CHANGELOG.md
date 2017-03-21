@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this section.
 ### Add 
   - Filter item can now have multiple `data-filter` attributes
 
+### Changed
+  - Ascii logo
+
 ## [1.0.1] - 2016-09-20
 ### Changed
   - Fix issue #1
